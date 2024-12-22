@@ -2613,3 +2613,222 @@ Processing by ProductsController#index as HTML
 Completed 200 OK in 54ms (Views: 21.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for ::1 at 2024-12-22 01:42:00 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (9.6ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 118.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 200.4ms | GC: 19.8ms)
+Completed 200 OK in 338ms (Views: 193.3ms | ActiveRecord: 15.9ms (2 queries, 0 cached) | GC: 19.8ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 01:42:02 -0600
+Processing by ProductsController#new as HTML
+  [1m[36mSession Load (1.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='new',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 81.6ms | GC: 1.2ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 89.4ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 97.1ms | GC: 1.2ms)
+Completed 200 OK in 138ms (Views: 98.5ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started POST "/products" for ::1 at 2024-12-22 01:43:29 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"test", "description"=>"<div>sdfsdfsfdsdfsfsf</div>", "featured_image"=>#<ActionDispatch::Http::UploadedFile:0x00007d6760ccd540 @tempfile=#<Tempfile:/tmp/RackMultipart20241222-31687-f6nz63.jpg>, @content_type="image/jpeg", @original_filename="counters-bg.jpg", @headers="Content-Disposition: form-data; name=\"product[featured_image]\"; filename=\"counters-bg.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Product"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mProduct Create (3.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('test', '2024-12-22 07:43:29.990923', '2024-12-22 07:43:29.990923') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActionText::RichText Create (2.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES ('description', '<div>sdfsdfsfdsdfsfsf</div>', 'Product', 5, '2024-12-22 07:43:30.044611', '2024-12-22 07:43:30.044611') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Product' AND "active_storage_attachments"."name" = 'featured_image' LIMIT 1 /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Product' AND "active_storage_attachments"."name" = 'featured_image' LIMIT 1 /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('45yjq1uh63fivdy8pb6pc67wzpwv', 'counters-bg.jpg', 'image/jpeg', '{"identified":true}', 'local', 314088, 'Vs3Kt0+gbBxTgoMXES6pUg==', '2024-12-22 07:43:30.212202') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('featured_image', 'Product', 5, 1, '2024-12-22 07:43:30.231671') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mProduct Update (0.2ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = '2024-12-22 07:43:30.241454' WHERE "products"."id" = 5 /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:20:in `create'
+[36m  Disk Storage (1.7ms) [0m[32mUploaded file to key: 45yjq1uh63fivdy8pb6pc67wzpwv (checksum: Vs3Kt0+gbBxTgoMXES6pUg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: eaa20cbf-d7e7-4267-a7fe-4803125a2a1d) to Async(default) with arguments: #<GlobalID:0x00007d675b6859a8 @uri=#<URI::GID gid://store/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/products_controller.rb:20:in `create'
+Redirected to http://localhost:3000/products/5
+Completed 302 Found in 416ms (ActiveRecord: 10.0ms (9 queries, 0 cached) | GC: 21.8ms)
+
+
+Started GET "/products/5" for ::1 at 2024-12-22 01:43:30 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='Store'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d] Performing ActiveStorage::AnalyzeJob (Job ID: eaa20cbf-d7e7-4267-a7fe-4803125a2a1d) from Async(default) enqueued at 2024-12-22T07:43:30.322957329Z with arguments: #<GlobalID:0x00007d675b1b6f30 @uri=#<URI::GID gid://store/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mActiveStorage::Blob Update (9.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 1 /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mProduct Load (3.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 5 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:3
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 5 /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mProduct Update (0.1ms)[0m  [1m[33mUPDATE "products" SET "updated_at" = '2024-12-22 07:43:30.613606' WHERE "products"."id" = 5 /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actiontext-8.0.1/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 40.1ms | GC: 21.0ms)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Product' AND "active_storage_attachments"."name" = 'featured_image' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [eaa20cbf-d7e7-4267-a7fe-4803125a2a1d] Performed ActiveStorage::AnalyzeJob (Job ID: eaa20cbf-d7e7-4267-a7fe-4803125a2a1d) from Async(default) in 278.01ms
+  ↳ app/views/products/show.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:5
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered products/show.html.erb within layouts/application (Duration: 123.0ms | GC: 21.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 128.3ms | GC: 21.7ms)
+Completed 200 OK in 305ms (Views: 129.4ms | ActiveRecord: 4.1ms (5 queries, 0 cached) | GC: 21.7ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--a85ac7e65057af70d58cc90cd3c865af68d88cec/counters-bg.jpg" for ::1 at 2024-12-22 01:43:30 -0600
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--a85ac7e65057af70d58cc90cd3c865af68d88cec", "filename"=>"counters-bg"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Store',controller='redirect'*/[0m
+[36m  Disk Storage (2.1ms) [0m[34mGenerated URL for file at key: 45yjq1uh63fivdy8pb6pc67wzpwv (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI0NXlqcTF1aDYzZml2ZHk4cGI2cGM2N3d6cHd2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiY291bnRlcnMtYmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnY291bnRlcnMtYmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjQtMTItMjJUMDc6NDg6MzAuNzYyWiIsInB1ciI6ImJsb2Jfa2V5In19--4ec5fbcda26f242696be99396406931a3e00ff06/counters-bg.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI0NXlqcTF1aDYzZml2ZHk4cGI2cGM2N3d6cHd2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiY291bnRlcnMtYmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnY291bnRlcnMtYmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjQtMTItMjJUMDc6NDg6MzAuNzYyWiIsInB1ciI6ImJsb2Jfa2V5In19--4ec5fbcda26f242696be99396406931a3e00ff06/counters-bg.jpg
+Completed 302 Found in 34ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI0NXlqcTF1aDYzZml2ZHk4cGI2cGM2N3d6cHd2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiY291bnRlcnMtYmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnY291bnRlcnMtYmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjQtMTItMjJUMDc6NDg6MzAuNzYyWiIsInB1ciI6ImJsb2Jfa2V5In19--4ec5fbcda26f242696be99396406931a3e00ff06/counters-bg.jpg" for ::1 at 2024-12-22 01:43:30 -0600
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"counters-bg"}
+Completed 200 OK in 22ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/5/edit" for ::1 at 2024-12-22 01:43:36 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 5 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/views/products/_form.html.erb:8
+  Rendered products/_form.html.erb (Duration: 73.5ms | GC: 0.9ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 75.7ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | GC: 0.9ms)
+Completed 200 OK in 118ms (Views: 86.2ms | ActiveRecord: 0.8ms (3 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 01:43:36 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 17.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | GC: 0.0ms)
+Completed 200 OK in 45ms (Views: 23.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 01:43:38 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 2 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Product' AND "active_storage_attachments"."name" = 'featured_image' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:5
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered products/show.html.erb within layouts/application (Duration: 41.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | GC: 0.0ms)
+Completed 200 OK in 79ms (Views: 49.3ms | ActiveRecord: 0.6ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 01:43:38 -0600
+Processing by ProductsController#new as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='new',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 37.4ms | GC: 20.9ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 38.6ms | GC: 20.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | GC: 20.9ms)
+Completed 200 OK in 70ms (Views: 44.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 20.9ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 01:43:39 -0600
+Processing by ProductsController#new as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='new',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 6.2ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 12.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 01:43:39 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 2 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:3
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Product' AND "active_storage_attachments"."name" = 'featured_image' LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/views/products/show.html.erb:5
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered products/show.html.erb within layouts/application (Duration: 34.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.8ms | GC: 0.0ms)
+Completed 200 OK in 57ms (Views: 37.5ms | ActiveRecord: 0.4ms (4 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 01:43:41 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 20.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | GC: 0.0ms)
+Completed 200 OK in 64ms (Views: 31.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 01:43:42 -0600
+Processing by ProductsController#new as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='new',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 20.3ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 21.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.3ms | GC: 0.0ms)
+Completed 200 OK in 72ms (Views: 37.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.9ms)
+
+
