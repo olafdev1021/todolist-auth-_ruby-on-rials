@@ -1,0 +1,2615 @@
+Started GET "/" for 127.0.0.1 at 2024-12-21 11:31:59 -0600
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Store'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 75ms (Views: 12.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Store'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (8.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-12-21 17:39:57.657348', '2024-12-21 17:39:57.657354') RETURNING "key" /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Migrating to CreateProducts (20241221173554)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241221173554') RETURNING "version" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Create (9.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('T_Shirt', '2024-12-21 17:45:17.324056', '2024-12-21 17:45:17.324056') RETURNING "id" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Create (1.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('new Cap', '2024-12-21 17:46:15.815576', '2024-12-21 17:46:15.815576') RETURNING "id" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Load (7.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."name" = 'new Cap' /* loading for pp */ LIMIT 11 /*application='Store'*/[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ ORDER BY "products"."name" ASC LIMIT 11 /*application='Store'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ ORDER BY "products"."name" DESC LIMIT 11 /*application='Store'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Update (2.8ms)[0m  [1m[33mUPDATE "products" SET "name" = 'Updated T_shirt', "updated_at" = '2024-12-21 17:48:34.094923' WHERE "products"."id" = 1 /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Destroy (1.5ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = 1 /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/[0m
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:53:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 49ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:53:44 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.8ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b99f79430 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 75ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-12-21 13:53:44 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:53:51 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.9ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b99f79430 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 29ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:53:52 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.2ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b99f79430 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 27ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:54:01 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:54:18 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.5ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b99f79430 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 24ms (Views: 1.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:55:59 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.5ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 27ms (Views: 3.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:56:01 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.9ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 32ms (Views: 4.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:56:02 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 1.0ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 29ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:56:02 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.5ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 25ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:56:51 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.2ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 34ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-12-21 13:56:52 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:56:56 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 0.8ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 31ms (Views: 4.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:58:06 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 1.3ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b9bcf0130 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 29ms (Views: 2.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2024-12-21 13:58:17 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 11.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2024-12-21 13:58:22 -0600
+Processing by ProductsController#index as HTML
+  Rendering public/406-unsupported-browser.html
+  Rendered public/406-unsupported-browser.html (Duration: 1.4ms | GC: 0.0ms)
+Filter chain halted as #<Proc:0x0000738b996532c0 /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/actionpack-8.0.1/lib/action_controller/metal/allow_browser.rb:58 (lambda)> rendered or redirected
+Completed 406 Not Acceptable in 27ms (Views: 6.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-21 14:02:40 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/olaf/.local/share/mise/installs/ruby/3.3.6/lib/ruby/gems/3.3.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:02:45 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | GC: 3.2ms)
+Completed 200 OK in 82ms (Views: 49.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.2ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/application-bfcdf840.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/controllers/hello_controller-708796bd.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/turbo.min-fae85750.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/controllers/index-ee64e1f1.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/controllers/application-3affb389.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/assets/stimulus.min-4b1e420e.js" for ::1 at 2024-12-21 14:02:45 -0600
+Started GET "/products" for ::1 at 2024-12-21 14:02:59 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | GC: 0.0ms)
+Completed 200 OK in 72ms (Views: 41.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-21 14:03:01 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 5.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-21 14:04:40 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:4
+  Rendered products/index.html.erb within layouts/application (Duration: 61.8ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 71.2ms | GC: 0.4ms)
+Completed 200 OK in 113ms (Views: 70.0ms | ActiveRecord: 6.3ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/" for ::1 at 2024-12-21 14:08:00 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (11.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 40.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.2ms | GC: 0.0ms)
+Completed 200 OK in 79ms (Views: 37.7ms | ActiveRecord: 14.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-21 14:12:59 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (6.5ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 34.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | GC: 0.3ms)
+Completed 200 OK in 100ms (Views: 51.6ms | ActiveRecord: 7.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 14:13:00 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | GC: 0.0ms)
+Completed 200 OK in 59ms (Views: 9.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:13:02 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 58ms (Views: 15.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 14:13:03 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 8.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:13:03 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 27.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | GC: 0.0ms)
+Completed 200 OK in 64ms (Views: 34.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 14:13:04 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 1.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:16:13 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Started GET "/products" for ::1 at 2024-12-21 14:16:13 -0600
+Processing by ProductsController#index as HTML
+Processing by ProductsController#index as HTML
+Started GET "/products/2" for ::1 at 2024-12-21 14:16:14 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 109.8ms | GC: 0.0ms)
+  Rendered products/index.html.erb within layouts/application (Duration: 112.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 115.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 116.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 487ms (ActiveRecord: 16.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Completed 500 Internal Server Error in 488ms (ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 88.0ms | GC: 7.7ms)
+Completed 200 OK in 1267ms (Views: 92.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 172.6ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:16:15 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/favicon.ico" for ::1 at 2024-12-21 14:16:16 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products" for ::1 at 2024-12-21 14:18:01 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 9.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/2" for ::1 at 2024-12-21 14:18:04 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.2ms)
+Completed 200 OK in 40ms (Views: 8.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/products/" for ::1 at 2024-12-21 14:18:09 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 6.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b920490d28>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 14:19:03 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 35.1ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 5.9ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/favicon.ico" for ::1 at 2024-12-21 14:19:03 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products/2" for ::1 at 2024-12-21 14:19:07 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | GC: 0.0ms)
+Completed 200 OK in 77ms (Views: 22.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 14:19:09 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/2" for ::1 at 2024-12-21 14:19:12 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 11.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/products/" for ::1 at 2024-12-21 14:19:16 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%=link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91f1c3fd8>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 14:20:14 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 50.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 51.3ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 6.9ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e1ff160>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e1ff160>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e1ff160>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e1ff160>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:10:29 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 43.1ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | GC: 0.4ms)
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `products' for an instance of #<Class:0x000070b91e2aa8d0>)
+Caused by: NameError (undefined local variable or method `products' for an instance of #<Class:0x000070b91e2aa8d0>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `products' for an instance of #<Class:0x000070b91e2aa8d0>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, products %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NameError (undefined local variable or method `products' for an instance of #<Class:0x000070b91e2aa8d0>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:11:14 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (3.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 40.0ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 42.6ms | GC: 0.7ms)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for an instance of Integer)
+Caused by: NoMethodError (undefined method `to_model' for an instance of Integer)
+
+Information for: ActionView::Template::Error (undefined method `to_model' for an instance of Integer):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product.id %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `to_model' for an instance of Integer):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:11:17 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 7.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_model' for an instance of Integer)
+Caused by: NoMethodError (undefined method `to_model' for an instance of Integer)
+
+Information for: ActionView::Template::Error (undefined method `to_model' for an instance of Integer):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product.id %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `to_model' for an instance of Integer):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:11:26 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.6ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 23.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 3.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e3192f8>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e3192f8>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e3192f8>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e3192f8>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:12:20 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 15.8ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 2.7ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e0a6fe8>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e0a6fe8>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e0a6fe8>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:       <%= link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e0a6fe8>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:12:33 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 20.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e6d9618>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e6d9618>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e6d9618>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product %>
+    5:     </div>
+    6: 
+    7: <% end %>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e6d9618>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:13:11 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 32.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 3.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e152960>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e152960>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e152960>):
+    1: <h1>Products#index</h1>
+    2: <% @products.each do |product| %>
+    3:     <div>
+    4:         <%= link_to product.name, product %>
+    5:     </div>
+    6: 
+    7:     <div>
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e152960>):
+  
+app/views/products/index.html.erb:4
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:13:58 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:2
+  Rendered products/index.html.erb within layouts/application (Duration: 18.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | GC: 0.2ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e16c770>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e16c770>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e16c770>):
+    2: <% @products.each do |product| %>
+    3:     
+    4:     <div>
+    5:       <%= link_to product.name, product %>
+    6:     </div>
+    7: 
+    8: <% end %>
+  
+app/views/products/index.html.erb:5
+app/views/products/index.html.erb:2
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e16c770>):
+  
+app/views/products/index.html.erb:5
+app/views/products/index.html.erb:2
+Started GET "/products/" for ::1 at 2024-12-21 23:14:55 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:3
+  Rendered products/index.html.erb within layouts/application (Duration: 17.5ms | GC: 2.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | GC: 2.0ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e110e70>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e110e70>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e110e70>):
+    3:     <% @products.each do |product| %>
+    4:         
+    5:         <div>
+    6:         <%= link_to product.name, product %>
+    7:         </div>
+    8:     <% end %>
+    9: </div>
+  
+app/views/products/index.html.erb:6
+app/views/products/index.html.erb:3
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e110e70>):
+  
+app/views/products/index.html.erb:6
+app/views/products/index.html.erb:3
+Started GET "/products/" for ::1 at 2024-12-21 23:15:19 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:3
+  Rendered products/index.html.erb within layouts/application (Duration: 28.5ms | GC: 5.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | GC: 5.7ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 4.9ms (1 query, 0 cached) | GC: 5.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e2a37b0>)
+Caused by: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e2a37b0>)
+
+Information for: ActionView::Template::Error (undefined method `product_path' for an instance of #<Class:0x000070b91e2a37b0>):
+    2: <div id="products">
+    3:   <% @products.each do |product| %>
+    4:     <div>
+    5:       <%= link_to product.name, product %>
+    6:     </div>
+    7:   <% end %>
+    8: </div>
+  
+app/views/products/index.html.erb:5
+app/views/products/index.html.erb:3
+
+Information for cause: NoMethodError (undefined method `product_path' for an instance of #<Class:0x000070b91e2a37b0>):
+  
+app/views/products/index.html.erb:5
+app/views/products/index.html.erb:3
+Started GET "/products/" for ::1 at 2024-12-21 23:21:16 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:3
+  Rendered products/index.html.erb within layouts/application (Duration: 35.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 82.6ms | GC: 18.8ms)
+Completed 200 OK in 167ms (Views: 84.4ms | ActiveRecord: 3.4ms (1 query, 0 cached) | GC: 18.8ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 23:21:18 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (6.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 7.6ms | ActiveRecord: 5.8ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:21:19 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:3
+  Rendered products/index.html.erb within layouts/application (Duration: 17.2ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.2ms | GC: 0.4ms)
+Completed 200 OK in 45ms (Views: 20.5ms | ActiveRecord: 5.9ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 23:21:21 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 7.0ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:27:52 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Rendered products/index.html.erb within layouts/application (Duration: 10.6ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | GC: 0.3ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_product' for an instance of #<Class:0x000079ead8f63848>)
+Caused by: NameError (undefined local variable or method `new_product' for an instance of #<Class:0x000079ead8f63848>)
+
+Information for: ActionView::Template::Error (undefined local variable or method `new_product' for an instance of #<Class:0x000079ead8f63848>):
+    1: <h1>Products#index</h1>
+    2: 
+    3: <%= link_to "New Product", new_product %>
+    4: <div id="products">
+    5:   <% @products.each do |product| %>
+    6:     <div>
+  
+app/views/products/index.html.erb:3
+
+Information for cause: NameError (undefined local variable or method `new_product' for an instance of #<Class:0x000079ead8f63848>):
+  
+app/views/products/index.html.erb:3
+Started GET "/products" for ::1 at 2024-12-21 23:28:00 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (5.7ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 33.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | GC: 0.0ms)
+Completed 200 OK in 102ms (Views: 53.5ms | ActiveRecord: 5.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:28:02 -0600
+Processing by ProductsController#new as HTML
+Completed 406 Not Acceptable in 22ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (ProductsController#new is missing a template for request formats: text/html):
+  
+actionpack (8.0.1) lib/action_controller/metal/implicit_render.rb:49:in `default_render'
+actionpack (8.0.1) lib/action_controller/metal/basic_implicit_render.rb:9:in `send_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:226:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rendering.rb:193:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:261:in `block in process_action'
+activesupport (8.0.1) lib/active_support/callbacks.rb:120:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/products/new" for ::1 at 2024-12-21 23:33:56 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `lavel' for an instance of ActionView::Helpers::FormBuilder)
+Caused by: NoMethodError (undefined method `lavel' for an instance of ActionView::Helpers::FormBuilder)
+
+Information for: ActionView::Template::Error (undefined method `lavel' for an instance of ActionView::Helpers::FormBuilder):
+    1: <h1>New Product </h1>
+    2: <%= form_with model: @product do |form| %>
+    3:     <div>
+    4:         <%= form.lavel :name %>
+    5:         <%= form.text_field :name %>
+    6:     </div>
+    7:     <div>
+  
+app/views/products/new.html.erb:4
+app/views/products/new.html.erb:2
+
+Information for cause: NoMethodError (undefined method `lavel' for an instance of ActionView::Helpers::FormBuilder):
+  
+app/views/products/new.html.erb:4
+app/views/products/new.html.erb:2
+Started GET "/products/new" for ::1 at 2024-12-21 23:34:09 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 14.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | GC: 0.0ms)
+Completed 200 OK in 72ms (Views: 28.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:34:18 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 10.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | GC: 0.0ms)
+Completed 200 OK in 65ms (Views: 18.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:34:27 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 4.8ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 3.2ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 12.5ms)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>New Product </h1>
+<%= form_with model: @product do |form| %>
+    <div>
+        <%= form.label :new product %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%form.submit %>
+    </div>
+<% end %> 
+)
+Caused by: ActiveSupport::SyntaxErrorProxy (/home/olaf/store/app/views/products/new.html.erb:4: syntax error, unexpected local variable or method, expecting ')'
+...ppend=( form.label :new product ); @output_buffer.safe_appen...
+...                        ^~~~~~~
+)
+
+Information for: ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>New Product </h1>
+<%= form_with model: @product do |form| %>
+    <div>
+        <%= form.label :new product %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%form.submit %>
+    </div>
+<% end %> 
+):
+1:    <h1>New Product </h1>
+2:    <%= form_with model: @product do |form| %>
+3:        <div>
+4:            <%= form.label :new product %>
+5:            <%= form.text_field :name %>
+6:        </div>
+7:        <div>
+8:            <%form.submit %>
+9:        </div>
+10:    <% end %> 
+  
+app/views/products/new.html.erb:4: syntax error, unexpected local variable or method, expecting ')'
+
+Information for cause: ActiveSupport::SyntaxErrorProxy (/home/olaf/store/app/views/products/new.html.erb:4: syntax error, unexpected local variable or method, expecting ')'
+...ppend=( form.label :new product ); @output_buffer.safe_appen...
+...                        ^~~~~~~
+):
+  
+app/views/products/new.html.erb:4: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/products/new" for ::1 at 2024-12-21 23:34:35 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 14.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | GC: 0.4ms)
+Completed 200 OK in 65ms (Views: 26.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:35:01 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 8.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 200 OK in 62ms (Views: 18.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:35:14 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 7.7ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | GC: 0.2ms)
+Completed 200 OK in 62ms (Views: 18.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:35:26 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 11.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:40:34 -0600
+  
+SyntaxError (/home/olaf/store/app/controllers/products_controller.rb:28: syntax error, unexpected end-of-input, expecting `end' or dummy end):
+  
+app/controllers/products_controller.rb:28: syntax error, unexpected end-of-input, expecting `end' or dummy end
+Started GET "/products/new" for ::1 at 2024-12-21 23:42:33 -0600
+  
+SyntaxError (/home/olaf/store/app/controllers/products_controller.rb:28: syntax error, unexpected end-of-input, expecting `end' or dummy end):
+  
+app/controllers/products_controller.rb:28: syntax error, unexpected end-of-input, expecting `end' or dummy end
+Started GET "/products/new" for ::1 at 2024-12-21 23:42:50 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 14.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | GC: 0.0ms)
+Completed 200 OK in 61ms (Views: 28.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:42:58 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 8.0ms | GC: 2.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | GC: 7.7ms)
+Completed 200 OK in 74ms (Views: 23.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 21.1ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:43:03 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"11123"}, "commit"=>"Save"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.7ms)
+
+
+  
+NameError (undefined local variable or method `product_params' for an instance of ProductsController):
+  
+app/controllers/products_controller.rb:16:in `create'
+Started GET "/products" for ::1 at 2024-12-21 23:43:41 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 30.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.5ms | GC: 0.0ms)
+Completed 200 OK in 66ms (Views: 38.9ms | ActiveRecord: 4.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:43:41 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 11.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.4ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 21.6ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:43:42 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 4.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:43:43 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 7.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:43:45 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"1111"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+  [1m[36mProduct Create (3.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('1111', '2024-12-22 05:43:45.597241', '2024-12-22 05:43:45.597241') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 48ms (ActiveRecord: 5.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3" for ::1 at 2024-12-21 23:43:45 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 2.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:43:46 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 9.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:43:48 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 17.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 18.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:43:49 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 12.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 14.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 23:43:50 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 7.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:43:50 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 15.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 17.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:43:52 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"222"}, "commit"=>"Save"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+  [1m[36mProduct Create (1.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('222', '2024-12-22 05:43:52.106162', '2024-12-22 05:43:52.106162') RETURNING "id" /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:17:in `create'
+Redirected to http://localhost:3000/products/4
+Completed 302 Found in 58ms (ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 6.6ms)
+
+
+Started GET "/products/4" for ::1 at 2024-12-21 23:43:52 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:43:53 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 24.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | GC: 0.0ms)
+Completed 200 OK in 61ms (Views: 27.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:43:53 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:48:13 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 30.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-21 23:48:13 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 7.7ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:48:14 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 5.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 23:48:22 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | GC: 0.7ms)
+Completed 200 OK in 67ms (Views: 31.5ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:48:24 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 1.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-21 23:54:39 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (3.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 1.7ms | ActiveRecord: 3.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:54:40 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 2.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | GC: 0.3ms)
+Completed 200 OK in 22ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:41 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 6.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:42 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 11.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 14.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:42 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:42 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.3ms)
+Completed 200 OK in 22ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:42 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:42 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 5.1ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 1.3ms)
+Completed 200 OK in 26ms (Views: 6.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:43 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:43 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 5.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:43 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 1.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:43 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 7.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:44 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:44 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:44 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.4ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:45 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 26.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 27.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:45 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 11.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 12.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-21 23:54:47 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 4.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:48 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.5ms)
+Completed 200 OK in 24ms (Views: 2.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:48 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for ::1 at 2024-12-21 23:54:48 -0600
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>""}, "commit"=>"Save"}
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 2.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:03:38 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (2.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 22.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.6ms | GC: 1.1ms)
+Completed 200 OK in 90ms (Views: 44.5ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:03:39 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 12.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:03:40 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 8.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 12.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:03:41 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 2.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:03:42 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:26:in `edit'
+Completed 406 Not Acceptable in 22ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::MissingExactTemplate (ProductsController#edit is missing a template for request formats: text/html):
+  
+actionpack (8.0.1) lib/action_controller/metal/implicit_render.rb:49:in `default_render'
+actionpack (8.0.1) lib/action_controller/metal/basic_implicit_render.rb:9:in `send_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:226:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rendering.rb:193:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:261:in `block in process_action'
+activesupport (8.0.1) lib/active_support/callbacks.rb:120:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/products/2" for ::1 at 2024-12-22 00:14:34 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 6.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | GC: 0.0ms)
+Completed 200 OK in 82ms (Views: 27.9ms | ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:14:35 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 6.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:14:45 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 12.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.9ms | GC: 0.0ms)
+Completed 200 OK in 102ms (Views: 34.1ms | ActiveRecord: 3.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:14:47 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 14.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:14:48 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 4.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:14:51 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 19.8ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 21.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | GC: 0.0ms)
+Completed 200 OK in 62ms (Views: 22.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started PATCH "/products/2" for ::1 at 2024-12-22 00:14:54 -0600
+Processing by ProductsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"new Cap3333"}, "commit"=>"Update Product", "id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+  [1m[36mProduct Update (1.8ms)[0m  [1m[33mUPDATE "products" SET "name" = 'new Cap3333', "updated_at" = '2024-12-22 06:14:54.255027' WHERE "products"."id" = 2 /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 63ms (ActiveRecord: 3.7ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:14:54 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 2.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:14:56 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 3.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.6ms)
+Completed 200 OK in 37ms (Views: 5.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 00:14:58 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3" for ::1 at 2024-12-22 00:14:59 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 1.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/products/4" for ::1 at 2024-12-22 00:14:59 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 2.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4/edit" for ::1 at 2024-12-22 00:15:00 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 45ms (Views: 4.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/products/4" for ::1 at 2024-12-22 00:15:03 -0600
+Processing by ProductsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "product"=>{"name"=>"222sdfsdfsdf"}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+  [1m[36mProduct Update (0.9ms)[0m  [1m[33mUPDATE "products" SET "name" = '222sdfsdfsdf', "updated_at" = '2024-12-22 06:15:03.655608' WHERE "products"."id" = 4 /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:33:in `update'
+Redirected to http://localhost:3000/products/4
+Completed 302 Found in 25ms (ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4" for ::1 at 2024-12-22 00:15:03 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 2.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:15:04 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | GC: 0.3ms)
+Completed 200 OK in 42ms (Views: 8.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:15:05 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 3.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 00:15:05 -0600
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3" for ::1 at 2024-12-22 00:15:06 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 25ms (Views: 2.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started DELETE "/products/3" for ::1 at 2024-12-22 00:15:11 -0600
+Processing by ProductsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil):
+  
+app/controllers/products_controller.rb:41:in `destroy'
+Started GET "/products/3" for ::1 at 2024-12-22 00:15:28 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 16.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.4ms | GC: 0.0ms)
+Completed 200 OK in 91ms (Views: 40.2ms | ActiveRecord: 2.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Migrating to CreateUsers (20241222061910)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email_address" varchar NOT NULL, "password_digest" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Store'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email_address" ON "users" ("email_address") /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241222061910') RETURNING "version" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+Migrating to CreateSessions (20241222061911)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "ip_address" varchar, "user_agent" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_758836b4f0"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Store'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_sessions_on_user_id" ON "sessions" ("user_id") /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241222061911') RETURNING "version" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[36mUser Create (6.9ms)[0m  [1m[32mINSERT INTO "users" ("email_address", "password_digest", "created_at", "updated_at") VALUES ('olafdev1021@gmail.com', '$2a$12$6twc2L4C2WOUK2i0YKTuEe14RcHEAfEi9eNFO9dFYRTMqmV8FOZnm', '2024-12-22 06:22:08.788057', '2024-12-22 06:22:08.788057') RETURNING "id" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+Started GET "/products/3" for ::1 at 2024-12-22 00:22:37 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 51ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2024-12-22 00:22:37 -0600
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 12.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.6ms | GC: 18.6ms)
+Completed 200 OK in 104ms (Views: 59.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 18.6ms)
+
+
+Started POST "/session" for ::1 at 2024-12-22 00:22:54 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email_address"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007d3c7b816548>, params: {"authenticity_token"=>"[FILTERED]", "email_address"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Sign in", "controller"=>"sessions", "action"=>"create"} }[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = 'olafdev1021@gmail.com' LIMIT 1 /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+  [1m[36mSession Create (5.2ms)[0m  [1m[32mINSERT INTO "sessions" ("user_id", "ip_address", "user_agent", "created_at", "updated_at") VALUES (1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', '2024-12-22 06:22:55.225696', '2024-12-22 06:22:55.225696') RETURNING "id" /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 440ms (ActiveRecord: 21.5ms (2 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/products/3" for ::1 at 2024-12-22 00:22:55 -0600
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:47:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | GC: 0.0ms)
+Completed 200 OK in 94ms (Views: 14.7ms | ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:47:55 -0600
+Processing by ProductsController#index as HTML
+  [1m[36mSession Load (4.9ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 22.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.3ms | GC: 0.0ms)
+Completed 200 OK in 133ms (Views: 50.7ms | ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2024-12-22 00:47:56 -0600
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 10.2ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='new',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 18.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/session" for ::1 at 2024-12-22 00:48:00 -0600
+Processing by SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='destroy',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in `terminate_session'
+  [1m[36mSession Destroy (5.4ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = 1 /*action='destroy',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in `terminate_session'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in `terminate_session'
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 75ms (ActiveRecord: 5.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2024-12-22 00:48:01 -0600
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 9.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:02 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (6.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 46.9ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 64.0ms | GC: 0.7ms)
+Completed 200 OK in 115ms (Views: 62.6ms | ActiveRecord: 8.3ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:03 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 10.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:04 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 20.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | GC: 0.0ms)
+Completed 200 OK in 70ms (Views: 43.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:04 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 19.2ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | GC: 0.2ms)
+Completed 200 OK in 49ms (Views: 25.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:05 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.3ms)
+Completed 200 OK in 37ms (Views: 14.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:05 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 9.2ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | GC: 0.3ms)
+Completed 200 OK in 37ms (Views: 14.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:50:06 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 16.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:07 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 18.7ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | GC: 0.4ms)
+Completed 200 OK in 53ms (Views: 22.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:50:07 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 6.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3" for ::1 at 2024-12-22 00:50:08 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.8ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | GC: 0.2ms)
+Completed 200 OK in 52ms (Views: 19.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:09 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 3.2ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.1ms)
+Completed 200 OK in 38ms (Views: 11.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:50:09 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 2.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4" for ::1 at 2024-12-22 00:50:09 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 4.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2024-12-22 00:50:10 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 11.9ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:50:11 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 8.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-22 00:50:11 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 5.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for ::1 at 2024-12-22 00:51:45 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (4.9ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 54.1ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.3ms | GC: 0.4ms)
+Completed 200 OK in 105ms (Views: 67.2ms | ActiveRecord: 5.4ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/session/new" for ::1 at 2024-12-22 00:51:46 -0600
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 9.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | GC: 0.2ms)
+Completed 200 OK in 38ms (Views: 18.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2024-12-22 00:51:48 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email_address"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: SessionsController, action: create, request: #<ActionDispatch::Request:0x00007d3c79b4e758>, params: {"authenticity_token"=>"[FILTERED]", "email_address"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Sign in", "controller"=>"sessions", "action"=>"create"} }[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = 'olafdev1021@gmail.com' LIMIT 1 /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+  [1m[36mSession Create (2.3ms)[0m  [1m[32mINSERT INTO "sessions" ("user_id", "ip_address", "user_agent", "created_at", "updated_at") VALUES (1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', '2024-12-22 06:51:49.251521', '2024-12-22 06:51:49.251521') RETURNING "id" /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Store',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in `start_new_session_for'
+Redirected to http://localhost:3000/
+Completed 302 Found in 344ms (ActiveRecord: 4.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/" for ::1 at 2024-12-22 00:51:49 -0600
+Processing by ProductsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 16.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 0.0ms)
+Completed 200 OK in 43ms (Views: 26.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for ::1 at 2024-12-22 00:51:51 -0600
+Processing by ProductsController#new as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='new',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 9.1ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 10.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | GC: 0.2ms)
+Completed 200 OK in 46ms (Views: 14.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/products/2" for ::1 at 2024-12-22 00:51:51 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered products/show.html.erb within layouts/application (Duration: 26.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | GC: 0.0ms)
+Completed 200 OK in 67ms (Views: 31.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:51:53 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 9.0ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 12.6ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Migrating to CreateActiveStorageTables (20241222065511)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL) /*application='Store'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Store'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Store'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Store'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Store'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Store'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241222065511') RETURNING "version" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+Migrating to CreateActionTextTables (20241222065512)
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Store'*/[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Store'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name") /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241222065512') RETURNING "version" /*application='Store'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Store'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:57:56 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/[0m
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+  
+SyntaxError (/home/olaf/store/app/models/product.rb:2: syntax error, unexpected ':', expecting `end' or dummy end
+    has_rich_text: description
+                 ^
+):
+  
+app/models/product.rb:2: syntax error, unexpected ':', expecting `end' or dummy end
+app/controllers/products_controller.rb:48:in `set_product'
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:58:29 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSession Load (2.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 10.5ms | GC: 1.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 15.2ms | GC: 1.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.0ms | GC: 2.4ms)
+Completed 200 OK in 230ms (Views: 55.8ms | ActiveRecord: 30.9ms (2 queries, 0 cached) | GC: 9.9ms)
+
+
+Started GET "/assets/actiontext-e646701d.css" for ::1 at 2024-12-22 00:58:29 -0600
+Started GET "/assets/application-3da76259.js" for ::1 at 2024-12-22 00:58:29 -0600
+Started GET "/assets/trix-0d050b00.js" for ::1 at 2024-12-22 00:58:29 -0600
+Started GET "/assets/actiontext.esm-f1c04d34.js" for ::1 at 2024-12-22 00:58:29 -0600
+Started GET "/products/2" for ::1 at 2024-12-22 00:58:34 -0600
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  Rendered products/show.html.erb within layouts/application (Duration: 10.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | GC: 0.0ms)
+Completed 200 OK in 59ms (Views: 19.6ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/2/edit" for ::1 at 2024-12-22 00:59:02 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 2 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/views/products/_form.html.erb:8
+  Rendered products/_form.html.erb (Duration: 169.2ms | GC: 1.2ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 171.4ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 184.5ms | GC: 1.3ms)
+Completed 200 OK in 343ms (Views: 189.2ms | ActiveRecord: 7.3ms (3 queries, 0 cached) | GC: 10.9ms)
+
+
+Started GET "/products/2/edit" for ::1 at 2024-12-22 01:00:15 -0600
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/controllers/products_controller.rb:48:in `set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 2 AND "action_text_rich_texts"."record_type" = 'Product' AND "action_text_rich_texts"."name" = 'description' LIMIT 1 /*action='edit',application='Store',controller='products'*/[0m
+  ↳ app/views/products/_form.html.erb:8
+  Rendered products/_form.html.erb (Duration: 33.5ms | GC: 0.7ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 39.3ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.2ms | GC: 0.7ms)
+Completed 200 OK in 168ms (Views: 52.5ms | ActiveRecord: 4.9ms (3 queries, 0 cached) | GC: 13.1ms)
+
+
+Started GET "/" for ::1 at 2024-12-22 01:00:16 -0600
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 2 LIMIT 1 /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in `find_session_by_cookie'
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/[0m
+  ↳ app/views/products/index.html.erb:5
+  Rendered products/index.html.erb within layouts/application (Duration: 14.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 21.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
